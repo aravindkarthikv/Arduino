@@ -1,0 +1,38 @@
+//touch sensor with led
+//1-10 on serial monitor when sensor is on
+//10-1 on serial monitor when sensor is off
+int TSP=2;
+int LED=8;
+int LED2=6;
+int i=1;
+int a=10;
+void setup(){
+Serial.begin(9600);
+pinMode(TSP,INPUT);
+pinMode(LED,OUTPUT);
+pinMode(LED2,OUTPUT);
+}
+
+void loop(){
+if(digitalRead(TSP)==HIGH) {
+ digitalWrite(LED,HIGH);
+ Serial.println("Touch Sensor Activated,LED ON");
+ digitalWrite(LED2,LOW);
+ for(i=1;i<=10;i++){
+  Serial.println(i); 
+ }
+  delay(1000);
+}  
+else{
+  digitalWrite(LED,LOW);
+ Serial.println("Touch Sensor Deactivated,LED OFF"); 
+  digitalWrite(LED2,HIGH);
+  for(a=10;a>=1;a--){
+  Serial.println(a);  
+    
+  }
+   delay(1000);
+}
+
+  
+}
