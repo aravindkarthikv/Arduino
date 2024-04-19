@@ -1,0 +1,20 @@
+#include <Servo.h>
+
+Servo Servov;
+
+
+void setup()
+{
+ Servov.attach(5);
+ Servov.write(0); 
+}
+
+void loop()
+{
+ Servov.write(0);
+ delay(3000); 
+ Servov.write(90);
+ delay(3000);
+Servov.write(180);
+ delay(3000); 
+}
