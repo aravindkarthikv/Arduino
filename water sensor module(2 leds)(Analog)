@@ -1,0 +1,38 @@
+// Water sensor module analog code
+int red = A3;
+int green = A1;
+int WSP = A5;
+
+
+void setup() 
+{
+  Serial.begin(9600);
+ pinMode(red,OUTPUT);    
+ pinMode(green,OUTPUT);   
+ pinMode(WSP,INPUT);   
+} 
+
+void loop() 
+{
+  int WSPvalue = analogRead(WSP);
+  Serial.println(WSPvalue);
+   
+   if (WSPvalue>290)
+{
+ analogWrite(red,0);
+ analogWrite(green,255);
+ Serial.println("Water sensor activated");
+ delay(1000);
+}
+else
+{
+ analogWrite(red,255);
+ analogWrite(green,0);  
+ Serial.println("Water sensor deactivated");
+ delay(1000);
+}
+
+
+
+
+}
