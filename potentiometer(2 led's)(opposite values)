@@ -1,0 +1,24 @@
+// print pot val in serial monitor
+//when red is bright,green should be low.(Same thing,also Vice Versa)
+int potMtr = A5;
+int red = A4;  
+int green = A3;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+}
+
+void loop()
+{
+ int potVal = analogRead(potMtr);
+  Serial.print("pot Value :");
+  Serial.println(potVal);
+  int ledbrightness = potVal/4;
+  Serial.print("led Value :");
+  Serial.println(ledbrightness);
+  analogWrite(red,ledbrightness);
+  analogWrite(green,255-ledbrightness);
+  delay(700);
+}
