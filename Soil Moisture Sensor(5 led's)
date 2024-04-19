@@ -1,0 +1,89 @@
+int SMS = A2;
+int orange = 2;
+int blue = 4;
+int green = 7; 
+int red = 8;      
+int yellow = 12;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(red,OUTPUT);
+  pinMode(yellow,OUTPUT);
+  pinMode(blue,OUTPUT);
+  pinMode(orange,OUTPUT);
+  pinMode(green,OUTPUT);
+  pinMode(SMS,INPUT);
+}
+
+void loop()
+{
+  int SensorVal = analogRead(SMS);
+  Serial.println(SensorVal);
+  
+  digitalWrite(red,LOW);
+  digitalWrite(yellow,LOW);
+  digitalWrite(blue,LOW);
+  digitalWrite(orange,LOW);
+  digitalWrite(green,LOW);  
+  
+  
+  if(SensorVal < 200)
+  { 
+    digitalWrite(red,HIGH);
+    digitalWrite(yellow,LOW);
+    digitalWrite(blue,LOW);
+    digitalWrite(orange,LOW);
+    digitalWrite(green,LOW);
+    Serial.println("Soil Sensor Value < 200");
+  }  
+    
+  else{    
+   if(SensorVal< 400) 
+   { 
+     digitalWrite(red,LOW);
+     digitalWrite(yellow,HIGH);
+     digitalWrite(blue,LOW);
+     digitalWrite(orange,LOW);
+     digitalWrite(green,LOW);
+     Serial.println("Soil Sensor Value = < 400");
+     }
+
+    
+ else{
+if(SensorVal<600)    
+{ 
+ digitalWrite(red,LOW);
+ digitalWrite(yellow,LOW);
+ digitalWrite(blue,HIGH);
+ digitalWrite(orange,LOW);
+ digitalWrite(green,LOW);
+ Serial.println("Soil Sensor Value = < 600  ");
+}
+
+else{   
+if(SensorVal < 800)   
+{
+ digitalWrite(red,LOW); 
+ digitalWrite(yellow,LOW);
+ digitalWrite(blue,LOW);
+ digitalWrite(orange,HIGH);
+ digitalWrite(green,LOW); 
+ Serial.println("Soil Sensor Value = < 800"); 
+}  
+
+  else{  
+       digitalWrite(red,LOW); 
+      digitalWrite(yellow,LOW);
+      digitalWrite(blue,LOW);
+      digitalWrite(orange,LOW);
+      digitalWrite(green,HIGH); 
+     Serial.println("Soil Sensor Value = > 800"); 
+  }
+ delay(100);  
+}  
+
+    
+}
+    
+}
+    
