@@ -1,0 +1,33 @@
+#include <Servo.h>
+
+
+
+
+int a = 0;
+Servo Servov;
+
+void setup() 
+{
+  Serial.begin(9600);
+  Servov.attach(5);
+  Servov.write(0);
+  } 
+    
+
+
+void loop() 
+{
+  for(a>0;a<180;a++)
+  {
+    Serial.println(a);
+    Servov.write(a);
+  } 
+   delay(2000);
+    
+for(a<180;a>0;a--)    
+  {
+   Serial.println(a); 
+  Servov.write(a);  
+  }  
+  delay(2000);
+  }  
