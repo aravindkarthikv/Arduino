@@ -1,0 +1,69 @@
+int potMtr = A4;
+int red = 8;
+int orange = 7;
+int yellow = 5;
+int green = 3;
+
+void setup()
+{
+ Serial.begin(9600);
+ pinMode(red,OUTPUT);
+ pinMode(orange,OUTPUT);
+ pinMode(yellow,OUTPUT);
+ pinMode(green,OUTPUT);
+}
+
+void loop()
+{
+  int potVal = analogRead(potMtr);
+  Serial.print(potVal);
+  potVal = map(potVal,0,1023,0,4);
+  delay(200);
+  
+    
+if(potVal==0)    
+  {    
+   digitalWrite(red,LOW); 
+  digitalWrite(orange,LOW); 
+  digitalWrite(yellow,LOW); 
+  digitalWrite(green,LOW); 
+  } 
+    
+if(potVal==1)
+{    
+ digitalWrite(red,HIGH);   
+ digitalWrite(orange,LOW);     
+ digitalWrite(yellow,LOW); 
+ digitalWrite(green,LOW); 
+ 
+  } 
+  
+if(potVal==2)  
+{ 
+ digitalWrite(red,LOW);  
+ digitalWrite(orange,HIGH);  
+ digitalWrite(yellow,LOW);  
+ digitalWrite(green,LOW); 
+ 
+  }
+  
+if(potVal==3)  
+{
+  digitalWrite(red,LOW); 
+  digitalWrite(orange,LOW); 
+  digitalWrite(yellow,HIGH); 
+  digitalWrite(green,LOW);
+ 
+}
+  
+if(potVal==4)
+  {
+  digitalWrite(red,LOW); 
+  digitalWrite(orange,LOW); 
+  digitalWrite(yellow,LOW); 
+  digitalWrite(green,HIGH);    
+  
+  }  
+    
+    
+}
