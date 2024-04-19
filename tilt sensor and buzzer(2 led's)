@@ -1,0 +1,29 @@
+int TS = 11;
+int green = 5;
+int red = 9;
+int buzzer = 3;
+
+void setup() {
+    Serial.begin(9600);  
+    pinMode(TS,INPUT);
+    pinMode(green,OUTPUT);
+    pinMode(red,OUTPUT);
+    pinMode(buzzer,OUTPUT);
+}
+
+void loop() {
+    if(digitalRead(TS)==HIGH)
+    {
+     digitalWrite(green,HIGH);
+     digitalWrite(red,LOW);
+     noTone(buzzer);
+     Serial.println("Tilt Sensor Activated");
+    }
+else{    
+     digitalWrite(green,LOW);
+     digitalWrite(red,HIGH);
+     Serial.println("Tilt Sensor Deactivated");
+     tone(buzzer,1000);
+
+    }
+}
