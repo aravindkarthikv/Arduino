@@ -1,0 +1,32 @@
+int VRx = A1;
+int VRy = A3;
+int SW = 2;
+int xposition = 0;
+int yposition = 0;
+int SW_state = 0;
+int mapX = 0;
+int mapY = 0;
+
+void setup() 
+{
+ Serial.begin(9600);
+ pinMode(VRx,INPUT);
+ pinMode(VRy,INPUT);
+ pinMode(SW,INPUT_PULLUP);
+}
+
+void loop() 
+{
+ xposition = analogRead(VRx);
+ yposition = analogRead(VRy);
+ SW_state = digitalRead(SW);
+ mapX = map(xposition,0,1023,-512,512);
+ mapY = map(yposition,0,1023,-512,512);
+ Serial.print("x:");
+ Serial.println(mapX);
+ Serial.print("Y;");
+ Serial.println(mapY);
+ Serial.print("Button :");
+ Serial.println(SW_state);
+ delay(500);
+}
