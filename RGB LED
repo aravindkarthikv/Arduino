@@ -1,0 +1,51 @@
+int ledR = 3;
+int ledB = 5;
+int ledG = 7;
+void setup()
+{
+  pinMode(ledR, OUTPUT);
+  pinMode(ledB, OUTPUT);
+  pinMode(ledG, OUTPUT);
+}
+
+
+
+
+void loop()
+{
+  //RED
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledB, HIGH);
+  digitalWrite(ledG, HIGH);
+  delay(1000);
+  //BLUE
+  digitalWrite(ledR, HIGH);
+  digitalWrite(ledB, LOW);
+  digitalWrite(ledG, HIGH);
+  delay(1000);
+  //GREEN
+  digitalWrite(ledR, HIGH);
+  digitalWrite(ledB, HIGH);
+  digitalWrite(ledG, LOW);
+  delay(1000);
+  //MAGENTA
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledB, LOW);
+  digitalWrite(ledG, HIGH);
+  delay(1000);
+  //CYAN
+  digitalWrite(ledR, HIGH);
+  digitalWrite(ledB, LOW);
+  digitalWrite(ledG, LOW);
+  delay(1000);
+  //YELLOW
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledB, HIGH);
+  digitalWrite(ledG, LOW);
+  delay(1000);
+  //WHITE
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledB, LOW);
+  digitalWrite(ledG, LOW);
+  delay(1000);
+}
