@@ -1,0 +1,31 @@
+int LED = 8;
+int LED2 = 2;
+int SS = 4;
+
+
+void setup() {
+Serial.begin(9600);
+pinMode(LED,OUTPUT);
+pinMode(SSP,INPUT);
+pinMode(LED2,OUTPUT);
+}
+
+void loop() 
+{
+  if(digitalRead(SSP)==HIGH){  
+  digitalWrite(LED,HIGH);
+  digitalWrite(LED2,LOW);
+  delay(500);  
+   Serial.println("Sound Sensor Activated,LED is on"); 
+  }
+  
+else
+{
+  
+  digitalWrite(LED,LOW);
+  digitalWrite(LED2,HIGH);
+  delay(500);
+  Serial.println("Sound Sensor Deactivated,LED2 is on");
+}
+  
+}
