@@ -1,0 +1,50 @@
+#include <Servo.h>
+
+Servo Door;
+int trig = 7;
+int echo = 5;
+int led = 3;
+long distanceincm,duration;
+
+
+void setup()
+{
+  Door.attach(9);
+  Door.write(0);
+  Serial.begin(9600);
+ pinMode(trig,OUTPUT);
+ pinMode(echo,INPUT);
+ pinMode(led,OUTPUT);  
+}
+
+void loop()
+{
+  digitalWrite(trig,LOW);
+  delayMicroseconds(5);
+  digitalWrite(trig,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig,LOW);
+  delayMicroseconds(5);
+  
+duration = pulseIn(echo,HIGH);
+  
+distanceincm = (duration/2)/29.1;
+  
+  
+ Serial.print("distance in cm: ");
+ Serial.println(distanceincm);
+  
+if(distanceincm<9)  
+{
+ digitalWrite(led,HIGH); 
+ Door.write(90);
+ delay(5000); 
+}
+  
+else{  
+  digitalWrite(led,LOW);
+  Door.write(0);
+  delay(1000);
+}  
+  
+}
