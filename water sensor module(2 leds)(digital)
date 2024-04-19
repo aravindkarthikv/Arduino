@@ -1,0 +1,30 @@
+// Water Sensor Module  Code
+
+int red=5;
+int WSP = 9;
+int green = 3;
+void setup() 
+{
+ Serial.begin(9600);  
+ pinMode(WSP,INPUT);
+ pinMode(red,OUTPUT);
+ pinMode(green,OUTPUT);
+     
+}
+
+void loop() 
+{
+ if(digitalRead (WSP) == HIGH)
+{
+  digitalWrite(green,HIGH);
+  digitalWrite(red,LOW);
+  Serial.println("Water Sensor Activated");\
+  delay(1000);
+}
+else
+{
+  digitalWrite(green,LOW);
+  digitalWrite(red,HIGH);
+  Serial.println("Water Sensor Deavtivated");
+  delay(1000);
+}  
