@@ -1,0 +1,35 @@
+int LedR = 3;
+int LedB = 5;
+int LedG = 7;
+int TSP = 10;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(LedR, OUTPUT);
+  pinMode(LedB, OUTPUT);
+  pinMode(LedG, OUTPUT);
+  pinMode(TSP, INPUT);
+}
+
+void loop()
+{
+
+  if (digitalRead(TSP) == HIGH)
+  {
+    digitalWrite(LedR, LOW);
+    digitalWrite(LedB, HIGH);
+    digitalWrite(LedG, HIGH);
+    Serial.println("Touch Sensor Activated, Red Colour is on");
+    delay(500);
+  }
+else{
+digitalWrite(LedR,HIGH);
+digitalWrite(LedB,LOW);
+digitalWrite(LedG,LOW);
+Serial.println("Touch Sensor Deactivated,Cyan Colour is on");
+delay(500);
+}
+
+
+}
