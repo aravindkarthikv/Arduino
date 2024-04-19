@@ -1,0 +1,33 @@
+int SMS = A1;
+int red = 9;
+int green = 4;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(SMS, INPUT);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+}
+
+void loop()
+{
+int SensorVal = analogRead(SMS);
+  Serial.println(SensorVal);
+  
+  if(SensorVal>500)
+  {
+   digitalWrite(red,HIGH); 
+   digitalWrite(green,LOW);
+   Serial.print("Dry soil = ");
+   Serial.println(SensorVal);  
+  }
+else  
+{  
+ digitalWrite(red,LOW);
+ digitalWrite(green,HIGH); 
+ Serial.print("Wet Soil = ");
+ Serial.println(SensorVal);
+ 
+} 
+delay(500);
+  
